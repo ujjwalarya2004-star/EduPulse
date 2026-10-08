@@ -1,0 +1,55 @@
+services:
+  # MySQL Database Service
+  mysql:
+    image: mysql:8.0
+    container_name: smart_college_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: smart_college_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./smart-college-management-system/smart_college_db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Web Application Service (Node / Express + Vite Frontend & REST API)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: smart_college_app
+    restart: always
+    environment:
+      PORT: 3000
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: smart_college_db
+    ports:
+      - "3000:3000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  # Java Jakarta EE 10 / Apache Tomcat 10.1 Web Application (Servlets, JSP & JDBC)
+  tomcat:
+    build:
+      context: ./smart-college-management-system
+      dockerfile: Dockerfile
+    container_name: smart_college_tomcat
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  mysql_data:

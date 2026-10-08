@@ -1,0 +1,40 @@
+{
+  "name": "smart-college-management-system",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "build": "vite build",
+    "start": "node server.js",
+    "preview": "vite preview",
+    "setup:db": "node scripts/setup_mysql.js",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@google/genai": "^2.4.0",
+    "@tailwindcss/vite": "^4.0.9",
+    "@vitejs/plugin-react": "^4.3.4",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jszip": "^3.10.2",
+    "lucide-react": "^0.475.0",
+    "motion": "^12.4.3",
+    "mysql2": "^3.12.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^6.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.13.4",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "autoprefixer": "^10.4.20",
+    "tailwindcss": "^4.0.9",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
+  }
+}

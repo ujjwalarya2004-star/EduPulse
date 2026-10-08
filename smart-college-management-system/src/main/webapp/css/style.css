@@ -1,0 +1,122 @@
+/* Smart College Student Management System Custom Styles */
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --sidebar-bg: #0f172a;
+    --sidebar-hover: #1e293b;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+}
+
+body {
+    background-color: #f8fafc;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+}
+
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background-color: var(--sidebar-bg);
+    color: #f8fafc;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.3s;
+}
+
+.sidebar .brand {
+    padding: 1.5rem 1.25rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-nav {
+    padding: 1rem 0;
+    list-style: none;
+    margin: 0;
+}
+
+.sidebar-nav .nav-item {
+    margin-bottom: 0.25rem;
+}
+
+.sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 1.25rem;
+    color: #94a3b8;
+    font-size: 0.925rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.sidebar-nav .nav-link:hover,
+.sidebar-nav .nav-link.active {
+    color: #ffffff;
+    background-color: var(--sidebar-hover);
+    border-left: 3px solid #38bdf8;
+}
+
+.main-content {
+    margin-left: 260px;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.top-navbar {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    margin: -2rem -2rem 2rem -2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-stat {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-stat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    background-color: #f1f5f9;
+    color: #475569;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.badge-low-attendance {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.badge-ok-attendance {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
